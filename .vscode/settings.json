@@ -1,0 +1,7 @@
+{
+  "cSpell.ignoreWords": ["Signup"],
+  "editor.formatOnSave": true,
+  "editor.fontLigatures": false,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSaveMode": "modifications"
+}

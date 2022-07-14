@@ -7,6 +7,11 @@ import Cart from "../components/Cart/Cart";
 
 const Home: React.FC = () => {
   const { filteredProducts } = useAppSelector((state) => state.productReducers)
+
+  if (filteredProducts.length === 0)
+    return (
+      <div>Loading</div>
+    )
   return (
     <div>
       <Navbar />

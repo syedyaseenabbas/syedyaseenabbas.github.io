@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
 });
 
 const persistConfig = {
+  timeout: 100,
   key: "root",
   storage,
   stateReconciles: hardSet as (inboundState: CombinedState) => CombinedState,
