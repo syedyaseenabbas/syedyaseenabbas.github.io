@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Home from "./pages/Home";
+import Home from "./Pages/Home";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Login from "./components/Login";
-import Signup from "./components/SignUp";
-import { fetchProducts } from "./store/products/products.action";
-import { useAppDispatch } from "./hooks";
-import Product from "./pages/Product/Product";
+import Login from "./Components/Login";
+import Signup from "./Components/SignUp";
+import { fetchProducts } from "./Store/products/products.action";
+import { useAppDispatch } from "./Hooks";
+import Product from "./Pages/Product";
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();

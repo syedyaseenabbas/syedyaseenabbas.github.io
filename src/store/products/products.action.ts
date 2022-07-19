@@ -5,7 +5,7 @@ import {
   successFetching,
 } from "./products.slice";
 import axios from "axios";
-import { IProduct } from "../../types";
+import { IProduct } from "../../Types";
 
 export const fetchProducts = () => async (dispatch: AppDispatch) => {
   try {

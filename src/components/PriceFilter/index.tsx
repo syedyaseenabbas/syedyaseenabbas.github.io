@@ -4,8 +4,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { useAppDispatch } from '../hooks';
-import { sortByPrice } from "../store/products/products.slice"
+import { useAppDispatch } from '../../Hooks';
+import { sortByPrice } from "../../Store/products/products.slice"
 
 export default function SortByPrice() {
   const [priceFilter, setPriceFilter] = React.useState('');

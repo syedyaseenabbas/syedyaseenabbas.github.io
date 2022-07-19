@@ -1,9 +1,9 @@
 import { Box, Button, SwipeableDrawer } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "../../hooks";
-import { toggleCart, toggleItemRemoved } from "../../store/carts/cart.slice";
+import { useAppDispatch, useAppSelector } from "../../Hooks";
+import { toggleCart, toggleItemRemoved } from "../../Store/carts/cart.slice";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
-import CartProduct from "../CartProduct/CartProduct";
-import AlertComponent from "../Alert/AlertComponent";
+import CartProduct from "../CartProduct";
+import AlertComponent from "../Alert";
 import CloseIcon from "@material-ui/icons/Close";
 import "./cart.css";
 

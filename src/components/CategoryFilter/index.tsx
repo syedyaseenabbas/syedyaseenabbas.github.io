@@ -6,8 +6,8 @@ import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
-import { useAppDispatch } from "../hooks/index";
-import { filterByCategory } from "../store/products/products.slice";
+import { useAppDispatch } from "../../Hooks/index";
+import { filterByCategory } from "../../Store/products/products.slice";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;

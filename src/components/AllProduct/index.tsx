@@ -2,14 +2,14 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Button } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import { formatCurrency } from "../utilities/formatCurrency";
+import { formatCurrency } from "../../Utilities";
 import { User as FirebaseUser } from "firebase/auth";
 import { useState, useEffect } from "react";
-import { auth } from "../firebase";
-import { IProduct } from "../types/index";
+import { auth } from "../../Firebase";
+import { IProduct } from "../../Types/index";
 import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../hooks";
-import { addProduct } from "../store/carts/cart.slice";
+import { useAppDispatch, useAppSelector } from "../../Hooks";
+import { addProduct } from "../../Store/carts/cart.slice";
 
 interface storeItemProps {
   product: IProduct;
@@ -70,7 +70,7 @@ export const StoreItem: React.FC<storeItemProps> = ({ product }) => {
             endIcon={<AddShoppingCartIcon />}
             className="w-100"
             onClick={() => {
-              user !== null ? addToCart() : alert("Login Please");
+              user !== null ? addToCart() : navigate(`/Login`);
             }}
           >
             Add To Cart
