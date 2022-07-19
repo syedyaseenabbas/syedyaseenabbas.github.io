@@ -10,7 +10,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbars from 'react-bootstrap/Navbar';
 
-const Navbar: React.FC = () => {
+interface NavbarProp {
+  showFilter: boolean
+}
+
+const Navbar: React.FC<NavbarProp> = ({ showFilter }) => {
   const dispatch = useAppDispatch()
   const { cartItems } = useAppSelector((state) => state.cartReducer)
 
@@ -32,8 +36,7 @@ const Navbar: React.FC = () => {
               Login
             </Nav.Link>
           </Nav>
-          <SortByPrice />
-          <CategoryFilter />
+          {showFilter === true && <><SortByPrice /><CategoryFilter /></>}
           <Button style={{ height: 55 }}
             onClick={() => dispatch(toggleCart(true))}
             startIcon={<ShoppingCartIcon />}

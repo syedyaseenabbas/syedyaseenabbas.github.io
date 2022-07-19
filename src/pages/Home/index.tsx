@@ -14,7 +14,7 @@ const Home: React.FC = () => {
     )
   return (
     <div>
-      <Navbar />
+      <Navbar showFilter={true} />
       <Row md={2} xs={1} lg={3} className="g-3">
         {filteredProducts.map((item) => (
           <Col key={item.id}>

@@ -31,7 +31,7 @@ const Product: FC = () => {
   }, []);
   return (
     <>
-      <Navbar />
+      <Navbar showFilter={false} />
       <div className={"product"}>
         <div
           className="productWrapper"
