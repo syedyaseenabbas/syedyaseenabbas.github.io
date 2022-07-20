@@ -47,7 +47,7 @@ const Product: FC = () => {
           <div
             className={"productDescription"}
             style={{
-              flex: 2,
+              flex: 1,
               display: "flex",
               flexDirection: "column",
               maxWidth: "750px",

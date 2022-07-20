@@ -13,7 +13,7 @@
   background-color: white;
 }
 .productImg {
-  width: 80%;
+  width: 80%; 
   object-fit: contain;
 }
 
@@ -26,6 +26,10 @@
 }
 .productPrice {
   margin: 20px 0 20px 0;
+}
+.productDescription{
+  width: 80%;
+  object-fit: contain;
 }
 
 @media only screen and (max-width: 742px) {

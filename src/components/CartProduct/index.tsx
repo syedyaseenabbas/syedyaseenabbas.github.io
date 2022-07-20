@@ -45,7 +45,7 @@ const CartProduct: FC<CartItemProps> = ({ product }) => {
                <h2 className={'cartItemPrice'}>{product.product.price} $</h2>
                <div className={'cartItemCount'}>
                   <ButtonGroup>
-                     <Button onClick={decrease}>
+                     <Button disabled={count === 1 ? true : false} onClick={decrease}>
                         <RemoveIcon fontSize="small" />
                      </Button>
                      <Button onClick={increase}>
