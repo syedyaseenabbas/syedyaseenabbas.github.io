@@ -8,12 +8,14 @@ import Cart from "../../Components/Cart";
 import { addProduct } from "../../Store/carts/cart.slice"
 import { auth } from "../../Firebase";
 import { User as FirebaseUser } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 import "./product.css";
 
 const Product: FC = () => {
   const { productId } = useParams();
   const { products } = useAppSelector((state) => state.productReducers);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const product = products.filter(
     (product) => product.id === Number(productId)
   )[0];
@@ -79,7 +81,7 @@ const Product: FC = () => {
                   !!cartItems.find((item) => item.product.id === product.id)
                 }
                 onClick={() => {
-                  user !== null ? addToCart() : alert("Login Please");
+                  user !== null ? addToCart() : navigate(`/Login`);
                 }}
                 variant={"contained"}
                 endIcon={<AddShoppingCartIcon />}
