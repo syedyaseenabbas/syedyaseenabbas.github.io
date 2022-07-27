@@ -1,0 +1,17 @@
+.successOrder {
+  position: absolute;
+  top: 89%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.successButton {
+  margin-top: 20px;
+}
+.MuiTablePagination-selectLabel {
+  margin-bottom: 0 !important;
+}
+
+.MuiTablePagination-displayedRows {
+  margin-bottom: 0 !important;
+}

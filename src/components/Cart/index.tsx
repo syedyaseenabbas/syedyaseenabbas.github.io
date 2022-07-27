@@ -1,23 +1,38 @@
 import { Box, Button, SwipeableDrawer } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../../Hooks";
 import { toggleCart, toggleItemRemoved } from "../../Store/carts/cart.slice";
+import { addProduct } from "../../Store/orders/order.slice";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import CartProduct from "../CartProduct";
 import AlertComponent from "../Alert";
 import CloseIcon from "@material-ui/icons/Close";
+import { useNavigate } from "react-router";
 import "./cart.css";
+import { useState } from "react";
 
 const Cart = () => {
   const { isOpen, cartItems, isEmpty, totalSum, itemRemoved } = useAppSelector(
     (state) => state.cartReducer
   );
+  const { OrderItems } = useAppSelector((state) => state.orderReducer);
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const [date, setDate] = useState("");
   const handleClose = () => {
     dispatch(toggleCart(false));
   };
   const handleSubmit = () => {
     dispatch(toggleCart(false));
   };
+
+  const handleOrder = () => {
+    dispatch(toggleCart(false));
+    const newDate = new Date().toLocaleString();
+    setDate(newDate);
+    dispatch(addProduct({ cartItem: cartItems, date: newDate }));
+    navigate("/SuccessOrder");
+  };
+
   return (
     <div className={"cart"}>
       <SwipeableDrawer
@@ -57,7 +72,7 @@ const Cart = () => {
               <div className={"cartSpan"} />
               <div className={"cartBottom"}>
                 <h3 className={"cartTotal"}>Total: {totalSum.toFixed(2)} $</h3>
-                <Button onClick={handleSubmit} variant={"contained"}>
+                <Button onClick={handleOrder} variant={"contained"}>
                   Place order
                 </Button>
               </div>

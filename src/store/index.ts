@@ -1,6 +1,7 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import productReducers from "./products/products.slice";
 import cartReducer from "./carts/cart.slice";
+import orderReducer from "./orders/order.slice";
 import storage from "redux-persist/lib/storage";
 import { persistReducer, persistStore } from "redux-persist";
 import thunk from "redux-thunk";
@@ -11,6 +12,7 @@ import * as rp from "redux-persist";
 const rootReducer = combineReducers({
   productReducers,
   cartReducer,
+  orderReducer,
 });
 
 const persistConfig = {
@@ -19,6 +21,7 @@ const persistConfig = {
   storage,
   stateReconciles: hardSet as (inboundState: CombinedState) => CombinedState,
   version: 1,
+  // blacklist: ["orderReducer"],
 };
 
 type CombinedState = typeof rootReducer extends Reducer<infer U, any>

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import { Button } from "@mui/material";
+import { Button, Rating } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { formatCurrency } from "../../Utilities";
 import { User as FirebaseUser } from "firebase/auth";
@@ -39,42 +39,70 @@ export const StoreItem: React.FC<storeItemProps> = ({ product }) => {
   };
 
   return (
-    <Card className="h-100">
+    <Card className="h-100 shadow-sm">
       <Card.Img
         onClick={navigateToProduct}
         variant="top"
         src={product.image}
-        height="300px"
-        width="300px"
-        style={{ objectFit: "contain", cursor: "pointer" }}
+        height="280px"
+        width="280px"
+        style={{
+          objectFit: "contain",
+          cursor: "pointer",
+          paddingTop: "10px",
+          paddingLeft: "1px",
+        }}
       />
       <Card.Body className="d-flex flex-column">
-        <Card.Title className="d-flex justify-content-between align-items-baseline mb-4">
+        <Card.Title className="d-flex justify-content-between align-items-baseline">
           <span
             onClick={navigateToProduct}
-            style={{ cursor: "pointer" }}
+            style={{
+              cursor: "pointer",
+              fontFamily: "Urbanist",
+              whiteSpace: "nowrap",
+              textOverflow: "ellipsis",
+              overflow: "hidden",
+            }}
             className="fs-2"
           >
             {product.title}
           </span>
-          <span className="ms-2 text-muted">
-            {formatCurrency(product.price)}
-          </span>
         </Card.Title>
+        <span
+          style={{ paddingBottom: "7px", fontWeight: "500", fontSize: "20px" }}
+        >
+          {formatCurrency(product.price)}
+        </span>
         <div className="mt-auto">
-          <Button
-            disabled={
-              !!cartItems.find((item) => item.product.id === product.id)
-            }
-            variant={"contained"}
-            endIcon={<AddShoppingCartIcon />}
-            className="w-100"
-            onClick={() => {
-              user !== null ? addToCart() : navigate(`/Login`);
+          <div
+            style={{
+              display: "flex",
+              gap: "5px",
+              alignItems: "center",
+              paddingBottom: "9px",
             }}
           >
-            Add To Cart
-          </Button>
+            <Rating name="read-only" value={product.rating.rate} readOnly />
+            <span style={{ color: "gray", fontSize: "15px" }}>
+              ({product.rating.count})
+            </span>
+          </div>
+          <div>
+            <Button
+              disabled={
+                !!cartItems.find((item) => item.product.id === product.id)
+              }
+              variant={"contained"}
+              endIcon={<AddShoppingCartIcon />}
+              className="w-100"
+              onClick={() => {
+                user !== null ? addToCart() : navigate(`/Login`);
+              }}
+            >
+              Add To Cart
+            </Button>
+          </div>
         </div>
       </Card.Body>
     </Card>

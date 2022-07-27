@@ -1,22 +1,22 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { useAppDispatch } from '../../Hooks';
-import { sortByPrice } from "../../Store/products/products.slice"
+import * as React from "react";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { useAppDispatch } from "../../Hooks";
+import { sortByPrice } from "../../Store/products/products.slice";
 
 export default function SortByPrice() {
-  const [priceFilter, setPriceFilter] = React.useState('');
-  const dispatch = useAppDispatch()
+  const [priceFilter, setPriceFilter] = React.useState("");
+  const dispatch = useAppDispatch();
 
   const handleChange = (event: SelectChangeEvent) => {
     setPriceFilter(event.target.value);
   };
 
   React.useEffect(() => {
-    dispatch(sortByPrice(priceFilter))
+    dispatch(sortByPrice(priceFilter));
   }, [priceFilter]);
 
   return (

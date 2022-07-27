@@ -5,7 +5,7 @@ import { Button, Chip, Rating } from "@mui/material";
 import Navbar from "../../Components/Navbar";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import Cart from "../../Components/Cart";
-import { addProduct } from "../../Store/carts/cart.slice"
+import { addProduct } from "../../Store/carts/cart.slice";
 import { auth } from "../../Firebase";
 import { User as FirebaseUser } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -39,11 +39,12 @@ const Product: FC = () => {
           className="productWrapper"
           style={{ display: "flex", paddingLeft: 20, paddingRight: 20 }}
         >
-          <div className="productImage" style={{ flex: 1, maxWidth: "500px" }}>
+          <div className="productImage">
             <img
               className="productImg"
               src={product.image}
               alt={product.title}
+              style={{ flex: 1, maxWidth: "500px" }}
             />
           </div>
           <div
