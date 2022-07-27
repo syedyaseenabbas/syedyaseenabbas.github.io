@@ -3,6 +3,10 @@
   "name": "e-commerce",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "18.4.0",
+    "npm": "8.15.0"
+  },
   "dependencies": {
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.9.3",
@@ -75,9 +79,5 @@
   },
   "devDependencies": {
     "@types/es6-promise": "^3.3.0"
-  },
-  "engines": {
-    "node": "18.4.0",
-    "npm": "8.15.0"
   }
 }
