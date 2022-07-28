@@ -2,9 +2,12 @@
   "cSpell.ignoreWords": [
     "Navbars",
     "Signup",
+    "browserslist",
+    "formik",
     "goole",
     "jewelery",
     "persistor",
+    "predeploy",
     "reduxjs"
   ],
   "editor.formatOnSave": true,

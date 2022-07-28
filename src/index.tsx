@@ -4,7 +4,7 @@ import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { AuthProvider } from "./Provider";
 import { Provider } from "react-redux";
-import { store } from "./Store";
+import { store } from "./Store/index";
 import { PersistGate } from "redux-persist/integration/react";
 import { persistStore } from "redux-persist";
 

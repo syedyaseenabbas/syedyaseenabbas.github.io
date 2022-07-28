@@ -1,6 +1,10 @@
 import { Box, Button, SwipeableDrawer } from "@mui/material";
 import { useAppDispatch, useAppSelector } from "../../Hooks";
-import { toggleCart, toggleItemRemoved } from "../../Store/carts/cart.slice";
+import {
+  toggleCart,
+  toggleItemRemoved,
+  clearCart,
+} from "../../Store/carts/cart.slice";
 import { addProduct } from "../../Store/orders/order.slice";
 import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import CartProduct from "../CartProduct";
@@ -30,6 +34,7 @@ const Cart = () => {
     const newDate = new Date().toLocaleString();
     setDate(newDate);
     dispatch(addProduct({ cartItem: cartItems, date: newDate }));
+    dispatch(clearCart());
     navigate("/SuccessOrder");
   };
 

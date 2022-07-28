@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import CategoryFilter from "../CategoryFilter";
 import SortByPrice from "../PriceFilter";
 import { useAppDispatch, useAppSelector } from "../../Hooks";
-import { toggleCart } from "../../Store/carts/cart.slice";
+import { toggleCart, clearCart } from "../../Store/carts/cart.slice";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { Button } from "@mui/material";
 import Container from "react-bootstrap/Container";
@@ -32,6 +32,7 @@ const Navbar: React.FC<NavbarProp> = ({ showFilter }) => {
   }, []);
   const HandleLogout = () => {
     signOut(auth);
+    dispatch(clearCart());
     navigate("/");
   };
 
